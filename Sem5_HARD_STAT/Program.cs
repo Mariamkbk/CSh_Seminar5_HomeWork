@@ -7,7 +7,7 @@
 int[] FillArray(int size)
 {
     int[] SomeArr = new int[size];
-    for (int i = 0; i < size; i++) SomeArr[i] = new Random().Next(-20, 21);
+    for (int i = 0; i < size; i++) SomeArr[i] = new Random().Next(-10, 21);
     return SomeArr;
 }
 
@@ -63,4 +63,15 @@ int ArithmeticMean(int[] arr)
     }
     arithmetic /= arr.Length;
 }
-int[] NewArray()
+try
+{
+    int len = Convert.ToInt32(Console.ReadLine());
+    int[] Arr = FillArray(len);
+    PrintArray(Arr);
+    int[] array = new int[max, maxind, min, minind, arifm];
+}
+catch
+{
+    Console.WriteLine("Проверьте правильность введенных данных");
+}
+

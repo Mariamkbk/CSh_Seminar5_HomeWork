@@ -82,7 +82,7 @@ int[] MixNums(int[] array)
 }
 try
 {
-    Console.WriteLine("Введите  размерность массива");
+    Console.WriteLine("Введите размерность массива от 1 до 11");
     int len = Convert.ToInt32(Console.ReadLine());
     int[] Arr = FillArray(len);
     PrintArray(Arr);
