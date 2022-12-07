@@ -4,3 +4,63 @@
 // Найти медианное значение первоначалального массива , 
 // возможно придется кое-что для этого дополнительно выполнить.
 
+int[] FillArray(int size)
+{
+    int[] SomeArr = new int[size];
+    for (int i = 0; i < size; i++) SomeArr[i] = new Random().Next(-20, 21);
+    return SomeArr;
+}
+
+void PrintArray(int[] arr)
+{
+    foreach (int el in arr) Console.Write($"{el} ");
+    Console.WriteLine();
+}
+
+int FindMax(int[] arr)
+{
+    int max = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
+}
+
+int FindMaxIndex(int[] arr, int max)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == max) int MaxIndex = i;
+    }
+    return MaxIndex;
+}
+int FindMin(int[] arr)
+{
+    int min = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] < min) min = arr[i];
+    }
+    return min;
+}
+
+int FindMinIndex(int[] arr, int min)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == min) int MinIndex = i;
+    }
+    return MinIndex;
+}
+
+int ArithmeticMean(int[] arr)
+{
+    int arithmetic = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arithmetic += arr[i];
+    }
+    arithmetic /= arr.Length;
+}
+int[] NewArray()
