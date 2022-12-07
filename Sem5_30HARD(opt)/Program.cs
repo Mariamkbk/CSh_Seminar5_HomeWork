@@ -85,10 +85,13 @@ try
     Console.WriteLine("Введите размерность массива от 1 до 11");
     int len = Convert.ToInt32(Console.ReadLine());
     int[] Arr = FillArray(len);
+    Console.Write("Массив Arr: ");
     PrintArray(Arr);
     SortArray(Arr);
+    Console.Write("Массив Arr отсортирован: ");
     PrintArray(Arr);
     MixNums(Arr);
+    Console.Write("Массив Arr перемешан: ");
     PrintArray(Arr);
 }
 catch
