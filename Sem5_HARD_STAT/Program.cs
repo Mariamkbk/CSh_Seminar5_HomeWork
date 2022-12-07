@@ -16,14 +16,13 @@ void PrintArray(int[] arr)
     foreach (int el in arr) Console.Write($"{el} ");
     Console.WriteLine();
 }
-void PrintArr(double[] arr,int[]array)
+void PrintArr(double[] arr, int[] array)
 {
-    Console.WriteLine($"Максимальный элемент массива равен {FindMax(array)}");
-    Console.WriteLine($"Индекс максимального элемента массива равен {FindMaxIndex(array, FindMax(array))}");
-    Console.WriteLine($"Минимальный элемент массива равен {FindMin(array)}");
-    Console.WriteLine($"Индекс минимального элемента массива равен {FindMinIndex(array, FindMin(array))}");
-    Console.WriteLine($"Среднее арифметическое всех элементов массива равно {ArithmeticMean(array)}");
-    // foreach (double el in arr) Console.Write($"{el} ");
+    Console.WriteLine($"Максимальный элемент данного массива: {FindMax(array)}");
+    Console.WriteLine($"Индекс максимального элемента данного массива: {FindMaxIndex(array, FindMax(array))}");
+    Console.WriteLine($"Минимальный элемент данного массива: {FindMin(array)}");
+    Console.WriteLine($"Индекс минимального элемента данного массива: {FindMinIndex(array, FindMin(array))}");
+    Console.WriteLine($"Среднее арифметическое всех элементов данного массива равно {ArithmeticMean(array)}");
 }
 
 int FindMax(int[] arr)
@@ -75,13 +74,53 @@ double ArithmeticMean(int[] arr)
     arithmetic /= arr.Length;
     return arithmetic;
 }
+int[] ArrangeArray(int[] arr)
+{
+    int i = 0;
+    int save = 0;
+    int count = 0;
+    while (count < arr.Length)
+    {
+        int max = arr[count];
+        for (i = count; i < arr.Length; i++)
+        {
+            if (arr[i] > max)
+            {
+                max = arr[i];
+                save = arr[count];
+                arr[count] = max;
+                arr[i] = save;
+            }
+        }
+        count++;
+
+    }
+    return arr;
+}
+double Mediana(int[] arr)
+{
+    ArrangeArray(arr);
+    double med = 0;
+    if (arr.Length % 2 == 0)
+    {
+        int i = arr.Length / 2;
+        int j = arr.Length / 2 - 1;
+        med = Convert.ToDouble((arr[i] + arr[j])) / 2;
+    }
+    else med = arr[arr.Length / 2];
+    return med;
+}
+
 try
 {
-    int len = 10;
+    Console.WriteLine("Введите  размерность массива от 1 до 20");
+    int len = Convert.ToInt32(Console.ReadLine());
     int[] Arr = FillArray(len);
+    Console.Write("Массив Arr: ");
     PrintArray(Arr);
-    double[] NewArr = {FindMax(Arr), FindMaxIndex(Arr,FindMax(Arr)), FindMin(Arr), FindMinIndex(Arr,FindMin(Arr)), ArithmeticMean(Arr)};
-    PrintArr(NewArr,Arr);
+    double[] NewArr = { FindMax(Arr), FindMaxIndex(Arr, FindMax(Arr)), FindMin(Arr), FindMinIndex(Arr, FindMin(Arr)), ArithmeticMean(Arr) };
+    PrintArr(NewArr, Arr);
+    Console.WriteLine($"Медианное значение массива Arr равно: {Mediana(Arr)}");
 }
 catch
 {
